@@ -16,4 +16,12 @@ struct WeatherManager {
         
         print(urlString)
     }
+    
+    func performRequest(urlString: String) {
+        //1. Create URL
+        //2. Create URLSession
+        //3. Give the session a task
+        //4. Start a task
+    }
+    
 }
