@@ -9,7 +9,7 @@
 import UIKit
 
 class WeatherViewController: UIViewController, UITextFieldDelegate {
-
+    
     
     @IBOutlet weak var searchTextField: UITextField!
     
@@ -20,6 +20,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     
     
+    var weatherManager = WeatherManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
@@ -28,13 +30,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true)
-        print(searchTextField.text!)
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.endEditing(true)
-        print(searchTextField.text!)
         return true
     }
     
@@ -42,14 +41,21 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         if searchTextField.text != "" {
             return true
         } else {
-        textField.placeholder = "Type something"
-        return false
+            textField.placeholder = "Type something"
+            return false
+        }
+        
     }
+        func textFieldDidEndEditing(_ textField: UITextField) {
+            
+            if let city = searchTextField.text {
+                weatherManager.fetchWeather(cityName: city)
+            }
+            
+            searchTextField.text = ""
+        }
+         
     
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        searchTextField.text = ""
-    }
-
 }
-
+// API Key -  74a47217a94036523b25789d068ac02c
