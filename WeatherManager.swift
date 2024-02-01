@@ -44,11 +44,28 @@ struct WeatherManager {
     func parseJSON(weatherData: Data) {
         let decoder = JSONDecoder()
         do {
-           let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            print(decodedData.weather[0].description)
+            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
+            let id = (decodedData.weather[0].id)
+            print(getConditionName(weatherID: id))
         } catch {
             print(error)
         }
     }
     
+    func getConditionName(weatherID: Int) -> String {
+        let result = weatherID
+        
+        switch result {
+        case 803:
+            return "cloud.rain"
+        case 802:
+            return "cloud.rain.fill"
+        case 801:
+            return "cloud.rain.circle"
+        default:
+            return "idk"
+        }
+    }
+    
 }
+
