@@ -11,6 +11,7 @@ import UIKit
 class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     
+    
     @IBOutlet weak var searchTextField: UITextField!
     
     
@@ -48,13 +49,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
         func textFieldDidEndEditing(_ textField: UITextField) {
             
-            if let city = searchTextField.text {
-                weatherManager.fetchWeather(cityName: city)
-            }
+             if let city = searchTextField.text {
+                 weatherManager.fetchWeather(cityName: city)
+             }
             
             searchTextField.text = ""
         }
          
+    func didUpdateWeather(weather: WeatherData) {
+        print(weather.main.temp)
+    }
     
     
 }

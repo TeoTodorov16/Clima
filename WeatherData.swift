@@ -22,6 +22,9 @@ struct Main: Decodable {
 
 struct Weather: Decodable {
     let id: Int
+    
+
 }
+
 
 
