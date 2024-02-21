@@ -35,6 +35,7 @@ class WeatherViewController: UIViewController {
 }
 // API Key -  74a47217a94036523b25789d068ac02c
 
+//MARK: - UITextFieldDelegate
 
 extension WeatherViewController: UITextFieldDelegate {
     @IBAction func searchPressed(_ sender: UIButton) {
@@ -65,6 +66,7 @@ extension WeatherViewController: UITextFieldDelegate {
         }
 }
 
+//MARK: - WeatherManagerDelegate
 
 extension WeatherViewController: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager,  weather: WeatherModel) {
