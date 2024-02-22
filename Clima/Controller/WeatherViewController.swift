@@ -38,6 +38,11 @@ class WeatherViewController: UIViewController {
     }
     
     
+    @IBAction func locationPressed(_ sender: UIButton) {
+        
+        
+    }
+    
 }
 // API Key -  74a47217a94036523b25789d068ac02c
 
@@ -72,6 +77,9 @@ extension WeatherViewController: UITextFieldDelegate {
             
             searchTextField.text = ""
         }
+    
+    
+    
 }
 
 //MARK: - WeatherManagerDelegate
